@@ -1,0 +1,22 @@
+name = "bumi"
+main = "src/server/worker.js"
+compatibility_date = "2023-08-30"
+node_compat = true
+account_id = "dda83bc45ee23dd747a7fe8c06c8edd4"
+
+rules = [
+  {type = "Text", globs = ["**/*.yaml"], fallthrough=true}
+]
+
+[site]
+bucket = "public"
+
+#[[r2_buckets]]
+#binding = "BUCKET"
+#bucket_name = "bumi"
+#preview_bucket_name = "bumi-dev"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "bumi"
+database_id = "bdbaf585-74f6-4c0a-b9c1-25efb8b094ff"

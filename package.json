@@ -1,0 +1,26 @@
+{
+  "name": "bumi",
+  "version": "1.0.0",
+  "type": "module",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "yarn build:quickmin && concurrently 'yarn dev:tailwind' 'yarn dev:nodemon'",
+    "dev:wrangler": "yarn build && wrangler dev",
+    "dev:server": "yarn build:isoq && node src/server/node.js",
+    "dev:nodemon": "yarn nodemon --watch src -e jsx,js --exec yarn dev:server",
+    "dev:tailwind": "yarn build:tailwind --watch",
+    "build:tailwind": "tailwind --minify -i ./src/main/index.css -o ./public/index.css",
+    "build:isoq": "isoq --contentdir public --splitting src/main/index.jsx",
+    "build:quickmin": "quickmin makeui --uidir=public",
+    "build": "time (yarn build:tailwind & yarn build:quickmin & yarn build:isoq & wait)",
+    "deploy": "yarn build && wrangler deploy"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.2.0",
+    "concurrently": "^8.2.1",
+    "hono": "^3.7.2",
+    "nodemon": "^3.0.1",
+    "tailwindcss": "^3.3.3",
+    "url-join": "^5.0.0"
+  }
+}

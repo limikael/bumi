@@ -1,0 +1,20 @@
+dsn: "sqlite:quickmin.db"
+d1Binding: "DB"
+r2Bucket: "BUCKET"
+jwtSecret: #FIXME
+adminUser: "admin"
+adminPass: #FIXME
+upload: "upload"
+
+#googleClientId: 
+#googleClientSecret: 
+
+collections:
+  children:
+    helperText: "Database of new humans welcomed into the block-chain world at Bumi Sehat."
+    fields:
+      <Text id="name" />
+      <Date id="date_of_birth"/>
+      <Text id="place_of_birth"/>
+      <Text id="mother" />
+      <Text id="father" />
